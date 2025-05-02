@@ -7,6 +7,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AcunMedyaAkademiAPI", "Acun
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AcunMedyaAkademiWebAPI", "AcunMedyaAkademiAPI\AcunMedyaAkademiWebAPI\AcunMedyaAkademiWebAPI.csproj", "{4EC7ED5A-9A1B-454A-9CCF-D8CA45A5C745}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "AcunMedyaAkademiWebUI", "AcunMedyaAkademiWebUI", "{D0036CD9-13BA-4A6F-A438-476E4391AFA3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AcunMedyaAkademiWebUI", "AcunMedyaAkademiWebUI\AcunMedyaAkademiWebUI\AcunMedyaAkademiWebUI.csproj", "{EDA88CE8-072E-4535-987B-63E775090EE3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,12 +21,17 @@ Global
 		{4EC7ED5A-9A1B-454A-9CCF-D8CA45A5C745}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4EC7ED5A-9A1B-454A-9CCF-D8CA45A5C745}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4EC7ED5A-9A1B-454A-9CCF-D8CA45A5C745}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDA88CE8-072E-4535-987B-63E775090EE3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDA88CE8-072E-4535-987B-63E775090EE3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDA88CE8-072E-4535-987B-63E775090EE3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDA88CE8-072E-4535-987B-63E775090EE3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{4EC7ED5A-9A1B-454A-9CCF-D8CA45A5C745} = {368833BF-C1B6-4384-A016-EFEB31798F8C}
+		{EDA88CE8-072E-4535-987B-63E775090EE3} = {D0036CD9-13BA-4A6F-A438-476E4391AFA3}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E3B30EBD-510D-4220-84CE-57AFDB63ABAE}
