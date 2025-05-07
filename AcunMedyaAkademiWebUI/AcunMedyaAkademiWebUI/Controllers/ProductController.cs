@@ -32,11 +32,25 @@ namespace AcunMedyaAkademiWebUI.Controllers
         public async Task<IActionResult> Index()
         {
             var client = _httpClientFactory.CreateClient(); //httpclientconfigurasyonu döner clientle ilgili temel özellikleri
-            var response = await client.GetAsync("https://localhost:7276/api/Categories");
+            var response = await client.GetAsync("https://localhost:7276/api/Products");
             if (response.IsSuccessStatusCode)
             {
                 var jsondata = await response.Content.ReadAsStringAsync();
                 var values = JsonConvert.DeserializeObject<List<ResultProductdto>>(jsondata);
+                //deserliaze -> jsondan - text string çevirme
+                //seriliaze->textten -json
+                return View(values);
+            }
+            return View();
+        }
+        public async Task<IActionResult> GetAllWithCategory()
+        {
+            var client = _httpClientFactory.CreateClient(); //httpclientconfigurasyonu döner clientle ilgili temel özellikleri
+            var response = await client.GetAsync("https://localhost:7276/api/Products/GetAllWithCategory"); //url
+            if (response.IsSuccessStatusCode)
+            {
+                var jsondata = await response.Content.ReadAsStringAsync();
+                var values = JsonConvert.DeserializeObject<List<ProductWithCategoryDto>>(jsondata); //dto
                 //deserliaze -> jsondan - text string çevirme
                 //seriliaze->textten -json
                 return View(values);
@@ -59,7 +73,7 @@ namespace AcunMedyaAkademiWebUI.Controllers
             var content = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
 
-            var response = await client.PostAsync("https://localhost:7276/api/Categories", content);
+            var response = await client.PostAsync("https://localhost:7276/api/Products", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -72,7 +86,7 @@ namespace AcunMedyaAkademiWebUI.Controllers
         public async Task<IActionResult> UpdateProduct(int id)
         {
             var client = _httpClientFactory.CreateClient();
-            var response = await client.GetAsync("https://localhost:7276/api/Categories/" + id);
+            var response = await client.GetAsync("https://localhost:7276/api/Products/" + id);
             var jsondata = await response.Content.ReadAsStringAsync();
             var values = JsonConvert.DeserializeObject<UpdateProductDto>(jsondata);
             return View(values);
@@ -85,7 +99,7 @@ namespace AcunMedyaAkademiWebUI.Controllers
             var jsondata = JsonConvert.SerializeObject(model);
             var content = new StringContent(jsondata, Encoding.UTF8, "application/json");
 
-            var response = await client.PutAsync($"https://localhost:7276/api/Categories/{id}", content);
+            var response = await client.PutAsync($"https://localhost:7276/api/Products/{id}", content);
 
             if (response.IsSuccessStatusCode)
             {
@@ -98,7 +112,7 @@ namespace AcunMedyaAkademiWebUI.Controllers
         {
             var client = _httpClientFactory.CreateClient();
 
-            var response = await client.DeleteAsync("https://localhost:7276/api/Categories/" + id);
+            var response = await client.DeleteAsync("https://localhost:7276/api/Products/" + id);
 
             if (response.IsSuccessStatusCode)
             {

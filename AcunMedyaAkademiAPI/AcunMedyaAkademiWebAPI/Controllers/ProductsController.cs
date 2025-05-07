@@ -23,7 +23,22 @@ namespace AcunMedyaAkademiWebAPI.Controllers
         public IActionResult GetAll()
         {
             
-            var product = _context.Products.Include(x=>x.Category).ToList();
+            var product = _context.Products.ToList();
+            return Ok(product); //200 ok
+        }
+
+        [HttpGet("GetAllWithCategory")]
+        public IActionResult GetAllWithCategory()
+        {
+
+            var product = _context.Products.Include(x=>x.Category).Select(p=>new ProductWithCategoryDto
+            {
+                ProductId=p.ProductId,
+                ProductName=p.ProductName,
+                Price=p.Price,
+                ImageUrl=p.ImageUrl,
+                CategoryName=p.Category.CategoryName
+            }).ToList();
             return Ok(product); //200 ok
         }
 
@@ -50,6 +65,7 @@ namespace AcunMedyaAkademiWebAPI.Controllers
                 ProductName = productdto.ProductName,
                 Price=productdto.Price,
                 ImageUrl=productdto.ImageUrl,
+                CategoryId=productdto.CategoryId
             };
 
             _context.Products.Add(product);

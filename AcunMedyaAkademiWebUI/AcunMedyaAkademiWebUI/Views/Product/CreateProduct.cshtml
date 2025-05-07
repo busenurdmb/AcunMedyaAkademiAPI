@@ -1,0 +1,29 @@
+﻿
+@model AcunMedyaAkademiWebUI.DTOs.Product.CreateProductDto
+@{
+    Layout = null;
+}
+
+<link href="~/lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" />
+<div class="container">
+    <br /> <br />
+
+
+    <form method="post">
+
+        <label>Ürün Adı</label>
+        <input type="text" asp-for="ProductName" class="form-control" />
+        <br />
+        <label>Ürün Fiyatı</label>
+        <input type="text" asp-for="Price" class="form-control" />
+        <br />
+        <label>Resmi</label>
+        <input type="text" asp-for="ImageUrl" class="form-control" />
+        <br />
+        <label>Ürün </label>
+        <input type="text" asp-for="CategoryId" class="form-control" />
+        <br />
+        <button class="btn btn-primary"> Ürün Kaydet</button>
+    </form>
+
+</div>
